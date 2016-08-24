@@ -1,0 +1,20 @@
+{
+  "name": "gurps_character_creation",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Joe Douglas <joe@bccriskadvisory.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "components-font-awesome": "^4.6.3"
+  }
+}

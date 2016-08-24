@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="environment" content="dev">
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="components-font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style type="text/css"></style>
+    <title>Gurps character creator</title>
+  </head>
+  <body ng-app="gurpscc">
+    <h1>Gurps Character Creator</h1>
+
+    <div ui-view="content"></div>
+
+    <!-- bower:js -->
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="angular/angular.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- app -->
+    <script src="app.js"></script>
+    <script src="templates.js"></script>
+    <!-- <script src="primary/primary.module.js"></script> -->
+  </body>
+</html>

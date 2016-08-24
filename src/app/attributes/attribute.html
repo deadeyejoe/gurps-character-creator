@@ -1,0 +1,14 @@
+<div ng-switch="attribute.type()">
+  <div ng-switch-when="scalar">
+    <scalar-stat path="{{attribute.path}}"></scalar-stat>
+  </div>
+  <div ng-switch-when="derived">
+    <derived-stat path="{{attribute.path}}"></derived-stat>
+  </div>
+  <div ng-switch-when="select">
+    <select-stat path="{{attribute.path}}"></select-stat>
+  </div>
+  <div ng-switch-when="toggle">
+    <toggle-stat path="{{attribute.path}}"></toggle-stat>
+  </div>
+</div>
