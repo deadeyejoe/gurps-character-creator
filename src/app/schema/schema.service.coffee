@@ -1,6 +1,12 @@
 class SchemaService
-  constructor: (schema) ->
-    @schema = @pathify(schema)
+  constructor: (primary, derived, image_and_status, advantages, disadvantages) ->
+    @schema = @pathify {
+      primary: primary
+      derived: derived
+      image_and_status: image_and_status
+      advantages: advantages
+      disadvantages: disadvantages
+    }
 
   #methods===================================
   descriptionFor: (path) ->
@@ -27,5 +33,6 @@ class SchemaService
   isRoot: (obj) ->
     return obj != Object(obj)
 
+SchemaService.$inject = ['primary', 'derived', 'image_and_status', 'advantages', 'disadvantages']
 
-angular.module('gurpscc').service 'SchemaService', ['schema', SchemaService]
+angular.module('gurpscc').service 'SchemaService', SchemaService

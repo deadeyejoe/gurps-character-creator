@@ -1,12 +1,14 @@
-<div>
-  <div class="form-group">
-    <label for="totalPoints">Total Points</label>
-    <input type="number" name="totalPoints" ng-model="score.totalPoints" ng-change="score.updateTotal()">
-  </div>
-  <p>
+<div class="navbar-right">
+  <form class="navbar-form">
+    <div class="form-group">
+      <label for="totalPoints">Total Points</label>
+      <input type="number" name="totalPoints" ng-model="score.totalPoints" ng-change="score.updateTotal()">
+    </div>
+  </form>
+  <p class="navbar-text">
     Points Remaining: {{score.currentPoints}}
   </p>
-  <p>
+  <p class="navbar-text">
     Points spent: {{score.spentPoints}}
   </p>
 </div>

@@ -36,7 +36,7 @@ module.exports = (grunt) ->
     connect:
       options:
         port:5000
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       serve:
         options:
           open:true

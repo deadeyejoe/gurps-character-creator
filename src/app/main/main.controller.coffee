@@ -2,7 +2,7 @@ MainController = (SchemaService, Character, $scope) ->
 
   init = () =>
     @character = Character
-    @schema = SchemaService
+    @schema = SchemaService.schema
     @primary = [
       "primary.strength"
       "primary.dexterity"
@@ -18,9 +18,17 @@ MainController = (SchemaService, Character, $scope) ->
       "derived.speed"
     ]
 
+    @image_and_status = []
+    for key, advantage of @schema.image_and_status
+      @image_and_status.push advantage.path unless key == "path"
+
     @advantages = []
-    for key, advantage of schema.advantages
-      @advantages.push advantage.path
+    for key, advantage of @schema.advantages
+      @advantages.push advantage.path unless key == "path"
+
+    @disadvantages = []
+    for key, advantage of @schema.disadvantages
+      @disadvantages.push advantage.path unless key == "path"
 
   init()
   return

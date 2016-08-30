@@ -19,5 +19,5 @@ angular.module('gurpscc.attributes').directive 'attribute', () -> {
   controllerAs: 'attribute'
   bindToController: true
   scope:
-    path: '@'
+    path: '='
 }

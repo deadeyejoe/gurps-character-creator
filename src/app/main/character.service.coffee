@@ -1,6 +1,6 @@
 class Character
   constructor: (schema) ->
-    @schema = schema
+    @schema = schema.schema
     @stats = {}
 
   getValue: (key) ->
@@ -31,4 +31,4 @@ class Character
     @setValue(key, (@getValue key) - amount)
 
 
-angular.module('gurpscc').service 'Character', Character
+angular.module('gurpscc').service 'Character', ['SchemaService', Character]

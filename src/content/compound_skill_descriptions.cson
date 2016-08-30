@@ -1,0 +1,131 @@
+
+label:"Influence Skills (Special)"
+breakdown: "There are several ways to influence others; each is a separate influence skill. A successful roll will result in a good reaction from an NPC. Failure results in a bad reaction (except for Diplomacy, which is relatively safe). To actually coerce or manipulate an NPC, you must win a Quick Contest of your skill versus his Will. Methods of influencing others include:
+Diplomacy (IQ/H): Negotiation and compromise.
+Defaults to IQ-6.
+Fast-Talk (IQ/A): Lying and deceit.
+Defaults to IQ-5.
+Intimidation (IQ/A): Threats and violence.
+Defaults to IQ-5.
+Savoir-Faire (IQ/E): Manners and etiquette.
+Mainly useful in “high society” situations.
+Defaults to IQ-4.
+Sex Appeal (HT/A): Vamping and seduction,
+usually of the opposite sex. Defaults to
+HT-3.
+Streetwise (IQ/A): Contacts and (usually)
+subtle intimidation. Only useful in “street”
+and criminal situations. Defaults to IQ-5."
+
+label:"Melee Weapon (Special)"
+breakdown:"This is not one skill, but an entire collection of skills – one per class of closely related melee weapons. Melee Weapon skills are based on DX, and default to DX-4 if Easy, DX-5 if Average, or DX-6 if Hard.
+Fencing Weapons
+Fencing weapons are light, one-handed
+weapons, usually hilted blades, optimized
+for parrying. Skills: Rapier (A) and
+Smallsword (A).
+Flails
+A flail is any flexible, unbalanced
+weapon with its mass concentrated in the
+head. Because flails tend to wrap around
+the target’s shield or weapon, attempts to
+block them are at -2 and attempts to parry
+them are at -4. Skills: Flail (H; includes
+morningstars and nunchaku).
+Impact Weapons
+An impact weapon is any rigid, unbalanced
+weapon with most of its mass concentrated
+in the head, such as axes and
+maces. Such a weapon cannot parry if you
+have already attacked with it on your turn.
+Skills: Axe/Mace (A).
+Pole Weapons
+Pole weapons are long (usually wooden)
+shafts, often adorned with striking heads.
+All require two hands. Skills: Polearm (A),
+Spear (A), Staff (A; also gives +2 to Parry).
+Swords
+A sword is a rigid, hilted blade with a
+thrusting point, cutting edge, or both. All
+swords are balanced, and can attack and
+parry without becoming unready. Skills:
+Broadsword (A), Knife (E; also gives -1 to
+Parry), Shortsword (A), and Two-Handed
+Sword (A)."
+
+label:"Missile Weapon (Special)"
+breakdown:
+"This is not one skill, but an entire collection
+of skills – one per class of closely related
+missile weapons. Missile Weapon skills
+are based on DX, and default to DX-4 if
+Easy, DX-5 if Average, or DX-6 if Hard.
+Gunner
+This is the ability to use a heavy weapon,
+usually one mounted on a tripod or a vehicle,
+to make a direct-fire attack – that is, to
+aim and fire at a target to which you have a
+line of sight. All Gunner skills are DX/Easy.
+Beams: Any kind of heavy directed-energy
+weapon: laser, particle beam, etc.
+Cannon: Any kind of heavy projectile
+weapon – e.g., the main gun of a tank or an
+ultra-tech railgun on a starship – that fires
+single shots.
+Machine Gun: Any kind of heavy
+projectile weapon capable of firing bursts.
+Guns
+This is the ability to use a hand-held
+chemical-propellant or mass-driver projectile
+weapon. All Guns skills are DX/Easy.
+Light Anti-Armor Weapon (LAW): All
+forms of rocket launchers and recoilless
+rifles.
+Pistol: All kinds of handguns, including
+derringers, pepperboxes, revolvers, and
+automatics, but not machine pistols.
+Rifle: Any kind of rifled long arm –
+assault rifle, hunting rifle, sniper rifle, etc. –
+that fires a solid projectile.
+Shotgun: Any kind of smoothbore long
+arm that fires multiple projectiles
+(flechettes, shot, etc.).
+Submachine Gun (SMG): All short, fully
+automatic weapons that fire pistol-caliber
+ammunition, including machine pistols.
+Flamethrower
+This is the ability to use a weapon that
+projects a stream of liquid or gas.
+Flamethrower is DX/Easy.
+Other Missile Weapons
+Blowpipe (DX/Hard): You can use this
+weapon to shoot small, usually poisoned,
+darts. You can also use it to blow powders
+at targets within one yard.
+Bow (DX/Average): This is the ability to
+use all bows except crossbows.
+Crossbow (DX/Easy): This is the ability
+to use all types of crossbows. "
+
+
+    label:"Thrown Weapon"
+    tech_level:false
+    stat: 'DX'
+    difficulty: 'E'
+    default: "DX-4."
+    description:"This is the ability to hurl any one type of thrown weapon. The types include: \nAxe/Mace: Any axe, hatchet, or mace balanced for throwing (but not an unbalanced battleaxe or maul!). \nKnife: Any sort of knife. \nShuriken: Any sort of hiltless blade, notably shuriken (“ninja stars”). \nSpear: Any sort of spear, javelin, etc."
+
+
+label:"Vehicle Skills (Special)"
+breakdown:
+"Each class of vehicle requires a different
+skill to operate it. Roll once to get under way
+and again each time a hazard is encountered;
+failure indicates lost time or even an accident.
+Vehicle skills default to DX at -4 (easy),
+-5 (average), or -6 (hard); motor vehicles also
+default to IQ, at similar penalties. Available
+types include Bicycling (DX/E), Boating
+(DX/A) for small boats, Driving (DX/A) for
+cars and motorbikes, Piloting (DX/A) for aircraft,
+and Submarine (DX/A) for subs. "
