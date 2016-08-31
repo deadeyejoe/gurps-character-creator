@@ -1,4 +1,5 @@
-simple_skills:
+angular.module('gurpscc').constant 'simpleSkills', {
+  
   acrobatics:
     name:"acrobatics"
     label:"Acrobatics"
@@ -557,3 +558,5 @@ simple_skills:
     difficulty: 'A'
     default: "-5"
     description:"This is the ability to write in a clear or entertaining manner. A successful roll means the work is readable and accurate."
+
+}

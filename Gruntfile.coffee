@@ -4,6 +4,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-angular-templates'
 
   config =
@@ -55,25 +56,35 @@ module.exports = (grunt) ->
         files:
           '<%= dirs.tmp.compiled %>/app.js': ['<%= dirs.src.app %>/<%= globs.module %>','<%= dirs.src.app %>/<%= globs.coffee %>']
 
+          
+    sass:
+      compile:
+        files:
+          '<%= dirs.tmp.compiled %>/style.css': '<%= dirs.src.app %>/style.scss'
+             
+
 
     watch:
       js:
         files: [
           '<%= dirs.src.app %>/<%= globs.coffee %>'
           '<%= dirs.src.app %>/<%= globs.html %>'
+          '<%= dirs.src.app %>/**/*.scss'
         ]
         tasks: ['build']
+  
+  
 
     ngtemplates:
       options:
         module: "gurpscc"
       build:
-        cwd: '<%= dirs.src.app %>',
-        src: '<%= globs.html %>',
+        cwd: '<%= dirs.src.app %>'
+        src: '<%= globs.html %>'
         dest: '<%= dirs.tmp.compiled %>/templates.js'
 
   grunt.initConfig config
 
   grunt.registerTask 'default', ['serve']
-  grunt.registerTask 'build', ['clean:build', 'coffee:compile', 'ngtemplates:build']
+  grunt.registerTask 'build', ['clean:build', 'coffee:compile', 'ngtemplates:build','sass:compile']
   grunt.registerTask 'serve', ['build', 'connect:serve', 'watch:js']

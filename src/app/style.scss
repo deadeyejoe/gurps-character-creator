@@ -1,0 +1,15 @@
+body {
+}
+
+.skill-group {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.skill-group-item {
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+}

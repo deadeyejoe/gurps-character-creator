@@ -1,0 +1,24 @@
+<div class="col-md-2">
+  <h3>Skills</h3>
+  <div class="skill-group">
+    <div class="skill-group-item"
+      ng-repeat="description in skills.instances"
+    >
+      <p>
+        <em>Label:</em> {{description.label}}
+      </p>
+      <p>
+        <em>Stat:</em> {{description.stat}}
+      </p>
+      <p>
+        <em>Difficulty:</em> {{description.difficulty}}
+      </p>
+      <p>
+        <em>Default:</em> {{description.default}}
+      </p>
+      <p>
+        <em>Description:</em> {{description.description}}
+      </p>
+    </div>
+  </div>
+</div>
