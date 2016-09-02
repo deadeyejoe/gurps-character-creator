@@ -3,17 +3,12 @@ ScoreDirectiveController = (ScoreService, Character) ->
   init = () =>
     @character = Character
     @totalPoints = 150
-    @currentPoints = @totalPoints
-
-    @updateTotal = updateTotal
-
-    ScoreService.register this
 
   @spentPoints = () =>
     @character.contribution
 
-  updateTotal = () =>
-    @currentPoints = @totalPoints - @spentPoints()
+  @currentPoints = () =>
+    @totalPoints - @spentPoints()
 
   init()
 
