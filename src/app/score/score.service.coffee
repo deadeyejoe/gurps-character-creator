@@ -4,7 +4,7 @@ ScoreService = () ->
     @keeper = keeper
 
   @apply = (path, contribution) ->
-    @keeper.apply(path, contribution)
+    # @keeper.apply(path, contribution)
 
   return
 

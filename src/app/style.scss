@@ -1,6 +1,12 @@
 body {
 }
 
+.skill-row {
+  &.selected {
+    border-style: solid;
+  }
+}
+
 .skill-group {
   height: 700px;
   display: flex;
@@ -12,4 +18,18 @@ body {
   padding: 5px;
   margin: 2px;
   border-radius: 5px;
+}
+
+
+.strength-related {
+  background-color: #F2DEDE
+}
+.dexterity-related {
+  background-color: #FCF8E3
+}
+.iq-related {
+  background-color: #E5D9F7
+}
+.health-related {
+  background-color: #DFF0D8
 }

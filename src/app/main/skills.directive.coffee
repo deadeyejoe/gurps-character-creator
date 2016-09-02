@@ -1,28 +1,49 @@
 #controller
-SkillsController = (SchemaService) ->
+SkillsController = (SchemaService, Character) ->
 
   init = () =>
-    @colors = 
-      ST:'#ca6464'
-      DX:'#4946e6'
-      IQ:'#9a539e'
-      HT:'#46e67f'
-      
     @schema = SchemaService.schema
-    @instances = cloneSubSchema(@schema.skills)
 
-  @colorFor = (description) =>
-    @colors[description.stat]
-    
-  cloneSubSchema = (subSchema) =>
-    ret = JSON.parse(JSON.stringify(subSchema))
-    delete ret.path
+    @instances = objToArray(@schema.skills)
+    @instances.pop() #remove the 'path'
+
+    @sortBy('label')
+    @setSelected(@instances[0].name)
+
+  @sortBy = (field) ->
+    if field == @sortField
+      @sortReverse = !@sortReverse
+    else
+      @sortField = field
+      @sortReverse = false
+
+  objToArray = (obj) =>
+    ret = []
+    ret.push value for key, value of obj
     ret
-    
+
+  @createStat = (description = @selected) =>
+    new ActivatedStat Character, description, SkillStat.create(Character, description)
+
+  @setSelected = (name) =>
+    @selected = @descriptionFor(name)
+    @characterStat = @createStat()
+
+  @isSelected = (name) => @selected.name == name
+  @descriptionFor = (name) => @schema.skills[name]
+
+  @notActive = (description) => !@isActive(description)
+  @isActive = (description) => Character.isActive(description.path)
+
+  @active = () =>
+    @actives = []
+    @actives.push skill for name, skill of Character.changes.skills
+    @actives
+
   init()
   return
 
-SkillsController.$inject = ['SchemaService']
+SkillsController.$inject = ['SchemaService', 'Character']
 
 angular.module('gurpscc').directive 'skills', () -> {
   templateUrl: 'main/skills.html'

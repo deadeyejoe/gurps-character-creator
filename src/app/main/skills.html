@@ -1,24 +1,86 @@
-<div class="col-md-2">
-  <h3>Skills</h3>
-  <div class="skill-group">
-    <div class="skill-group-item"
-      ng-repeat="description in skills.instances"
+<div class="col-md-3">
+  <h3>Available</h3>
+  <table class="skills-table table table-hover">
+    <tr>
+      <th ng-click="skills.sortBy('label')">
+        Name
+        <span ng-show="skills.sortField == 'label' && !skills.sortReverse" class="fa fa-caret-down"></span>
+        <span ng-show="skills.sortField == 'label' && skills.sortReverse" class="fa fa-caret-up"></span>
+      </th>
+      <th ng-click="skills.sortBy('stat')">
+        Stat
+        <span ng-show="skills.sortField == 'stat' && !skills.sortReverse" class="fa fa-caret-down"></span>
+        <span ng-show="skills.sortField == 'stat' && skills.sortReverse" class="fa fa-caret-up"></span>
+      </th>
+      <th ng-click="skills.sortBy('difficulty')">
+        Difficulty
+        <span ng-show="skills.sortField == 'difficulty' && !skills.sortReverse" class="fa fa-caret-down"></span>
+        <span ng-show="skills.sortField == 'difficulty' && skills.sortReverse" class="fa fa-caret-up"></span>
+      </th>
+    </tr>
+    <tr
+      class="skill-row"
+      related-stat="description.stat"
+      ng-class="{'selected' : skills.isSelected(description.name)}"
+      ng-click="skills.setSelected(description.name)"
+      ng-repeat="description in skills.instances | orderBy: skills.sortField : skills.sortReverse | filter: skills.notActive"
     >
-      <p>
-        <em>Label:</em> {{description.label}}
-      </p>
-      <p>
-        <em>Stat:</em> {{description.stat}}
-      </p>
-      <p>
-        <em>Difficulty:</em> {{description.difficulty}}
-      </p>
-      <p>
-        <em>Default:</em> {{description.default}}
-      </p>
-      <p>
-        <em>Description:</em> {{description.description}}
-      </p>
-    </div>
+      <td>{{description.label}}</td>
+      <td>{{description.stat}}</td>
+      <td><difficulty-label value="description.difficulty"></difficulty-label></td>
+    </tr>
+  </table>
+</div>
+
+<div class="col-md-5">
+  <div class="skill-description">
+    <h3>{{skills.selected.label}}</h3>
+    <table class="table table-borderless">
+      <tr>
+        <td> Stat: </td>
+        <td> {{skills.selected.stat}} </td>
+      </tr>
+      <tr>
+        <td> Difficulty </td>
+        <td> <difficulty-label value="skills.selected.difficulty"></difficulty-label> </td>
+      </tr>
+      <tr>
+        <td> Default: </td>
+        <td> {{skills.selected.default}} </td>
+      </tr>
+      <tr>
+        <td> Tech Level: </td>
+        <td> {{skills.selected.tech_level}} </td>
+      </tr>
+      <tr>
+        <td> Description: </td>
+        <td> {{skills.selected.description}} </td>
+      </tr>
+    </table>
   </div>
+  <a href="#" ng-click="skills.characterStat.activate()" class="btn btn-success" ng-disabled="skills.characterStat.isActive()">Add</a>
+  <a href="#" ng-click="skills.characterStat.deactivate()" class="btn btn-danger" ng-disabled="!skills.characterStat.isActive()">Remove</a>
+  <skill-edit character-stat="skills.characterStat" ng-if="skills.characterStat.isActive()"></skill-edit>
+</div>
+
+<div class="col-md-4">
+  <h3>Active</h3>
+  <table class="skills-table table table-hover">
+    <tr>
+      <th> Name </th>
+      <th> Value </th>
+      <th> Cost </th>
+    </tr>
+    <tr
+      class="skill-row"
+      related-stat="changeDescriptor.description.stat"
+      ng-class="{'selected' : skills.isSelected(changeDescriptor.description.name)}"
+      ng-click="skills.setSelected(changeDescriptor.description.name)"
+      ng-repeat="changeDescriptor in skills.active() | orderBy: 'label'"
+    >
+      <td>{{changeDescriptor.description.label}}</td>
+      <td>{{changeDescriptor.value}}</td>
+      <td>{{changeDescriptor.contribution}}</td>
+    </tr>
+  </table>
 </div>
