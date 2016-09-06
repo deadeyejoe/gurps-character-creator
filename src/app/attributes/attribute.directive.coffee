@@ -1,23 +1,19 @@
 #controller
-AttributeDirectiveController = (SchemaService) ->
+AttributeEditDirectiveController = (SchemaService) ->
 
   init = () =>
-    @description = SchemaService.descriptionFor @path
-
-  @type = () =>
-    @description.type
 
   init()
   return
 
-AttributeDirectiveController.$inject = ['SchemaService']
+AttributeEditDirectiveController.$inject = ['SchemaService']
 
-angular.module('gurpscc.attributes').directive 'attribute', () -> {
+angular.module('gurpscc.attributes').directive 'attributeEdit', () -> {
   templateUrl: 'attributes/attribute.html'
   restrict: 'E'
-  controller: AttributeDirectiveController
-  controllerAs: 'attribute'
+  controller: AttributeEditDirectiveController
+  controllerAs: 'attributeEdit'
   bindToController: true
   scope:
-    path: '='
+    characterStat: '='
 }

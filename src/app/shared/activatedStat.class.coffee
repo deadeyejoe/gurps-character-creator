@@ -3,6 +3,7 @@ class @ActivatedStat
     @path = @description.path
     @initChangeFields()
     @stat.onChange () => @reapply()
+    @reapply()
 
   initChangeFields: () =>
     if (change = @character.getChangeValue(@path))
@@ -32,3 +33,7 @@ class @ActivatedStat
     subtype: @subtype
     note: @note
   }
+
+  @create: (character, description) ->
+    stat = BaseStat.create character, description
+    new ActivatedStat character, description, stat

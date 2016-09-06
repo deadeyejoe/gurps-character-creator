@@ -1,0 +1,10 @@
+<div class="form-group">
+  <div class="input-group">
+    <select class="form-control"
+      ng-model="selectEdit.stat.value"
+      ng-options="key as value.label for (key, value) in selectEdit.stat.values"
+      ng-change="selectEdit.stat.changed()">
+    </select>
+    <span class="input-group-addon">{{- selectEdit.stat.contribution()}}</span>
+  </div>
+</div>

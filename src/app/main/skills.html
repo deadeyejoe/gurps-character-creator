@@ -23,6 +23,7 @@
       related-stat="description.stat"
       ng-class="{'selected' : skills.isSelected(description.name)}"
       ng-click="skills.setSelected(description.name)"
+      ng-dblclick="skills.selectAndToggle(description)"
       ng-repeat="description in skills.instances | orderBy: skills.sortField : skills.sortReverse | filter: skills.notActive"
     >
       <td>{{description.label}}</td>
@@ -76,6 +77,7 @@
       related-stat="changeDescriptor.description.stat"
       ng-class="{'selected' : skills.isSelected(changeDescriptor.description.name)}"
       ng-click="skills.setSelected(changeDescriptor.description.name)"
+      ng-dblclick="skills.selectAndToggle(changeDescriptor.description)"
       ng-repeat="changeDescriptor in skills.active() | orderBy: 'label'"
     >
       <td>{{changeDescriptor.description.label}}</td>

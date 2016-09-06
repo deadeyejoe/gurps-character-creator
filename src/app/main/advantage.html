@@ -2,41 +2,50 @@
   <h3>Advantages</h3>
   <div class="list-group">
     <a class="list-group-item"
-      ng-repeat="description in advDis.advantages"
-      ng-click="advDis.select(description)"
-      ng-hide="advDis.isActive(description)"
-      ng-class="{disabled: advDis.isExcluded(description)}"
+      ng-repeat="description in advantages.advantages"
+      ng-click="advantages.setSelected(description)"
+      ng-hide="advantages.isActive(description)" class="{disabled: advantages.isExcluded(description)}"
     >{{description.label}}</a>
   </div>
-</div>
-<div class="col-md-2">
-  <h3>Active</h3>
-  <div class="list-group">
-    <a class="list-group-item"
-      ng-repeat="description in advDis.active"
-      ng-click="advDis.select(description)"
-    >{{description.label}}</a>
-  </div>
-</div>
-<div class="col-md-6">
-  <div ng-if="advDis.selected != null">
-    <button type="button" class="btn btn-success" ng-click="advDis.addToCharacter(advDis.selected)" ng-hide="advDis.isActive(advDis.selected)">Add</button>
-    <button type="button" class="btn btn-danger" ng-click="advDis.removeFromCharacter(advDis.selected)" ng-show="advDis.isActive(advDis.selected)">Remove</button>
-  </div>
-  <h3>Description</h3>
-  <p>
-    {{advDis.selected.description}}
-  </p>
-  <attribute path="advDis.selected.path" ng-if="advDis.isActive(advDis.selected)"></attribute>
 </div>
 <div class="col-md-2">
   <h3>Disadvantages</h3>
   <div class="list-group">
     <a class="list-group-item"
-      ng-repeat="description in advDis.disadvantages"
-      ng-click="advDis.select(description)"
-      ng-hide="advDis.isActive(description)"
-      ng-class="{disabled: advDis.isExcluded(description)}"
+    ng-repeat="description in advantages.disadvantages"
+    ng-click="advantages.setSelected(description)"
+    ng-hide="advantages.isActive(description)" class="{disabled: advantages.isExcluded(description)}"
     >{{description.label}}</a>
+  </div>
+</div>
+<div class="col-md-6">
+  <h3>{{advantages.selected.label}}</h3>
+  <div ng-switch="advantages.selected.type">
+    <p ng-switch-when="toggle">
+      <em>Points:</em> {{advantages.selected.points_value}} points
+    </p>
+    <p ng-switch-when="scalar">
+      <em>Points:</em> {{advantages.selected.points_value}} points/level
+    </p>
+    <p ng-switch-when="select">
+      <em>Points:</em> varies
+    </p>
+    <p>
+      {{advantages.selected.description}}
+    </p>
+  </div>
+  <div ng-if="advantages.selected != null">
+    <button type="button" class="btn btn-success" ng-click="advantages.characterStat.activate()" ng-hide="advantages.characterStat.isActive()">Add</button>
+    <button type="button" class="btn btn-danger" ng-click="advantages.characterStat.deactivate()" ng-show="advantages.characterStat.isActive()">Remove</button>
+  </div>
+  <activated-attribute character-stat="advantages.characterStat" ng-if="advantages.characterStat.isActive()"></activated-attribute>
+</div>
+<div class="col-md-2">
+  <h3>Active</h3>
+  <div class="list-group">
+    <a class="list-group-item"
+    ng-repeat="changeDescriptor in advantages.active()"
+    ng-click="advantages.setSelected(changeDescriptor.description)"
+    >{{changeDescriptor.description.label}}</a>
   </div>
 </div>

@@ -23,7 +23,7 @@ SkillsController = (SchemaService, Character) ->
     ret
 
   @createStat = (description = @selected) =>
-    new ActivatedStat Character, description, SkillStat.create(Character, description)
+    ActivatedStat.create Character, description
 
   @setSelected = (name) =>
     @selected = @descriptionFor(name)
@@ -39,6 +39,10 @@ SkillsController = (SchemaService, Character) ->
     @actives = []
     @actives.push skill for name, skill of Character.changes.skills
     @actives
+
+  @selectAndToggle = (description) =>
+    @setSelected(description.name)
+    if @characterStat.isActive() then @characterStat.deactivate() else @characterStat.activate()
 
   init()
   return
