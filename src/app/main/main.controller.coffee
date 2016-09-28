@@ -3,6 +3,9 @@ MainController = (SchemaService, Character, $scope) ->
   init = () =>
     @character = Character
     @schema = SchemaService.schema
+
+    @cschema = new CharacterSchema @schema.primary, @schema.image_and_status, @schema.advantages, @schema.disadvantages, @schema.skills
+    
     @primary = [
       "primary.strength"
       "primary.dexterity"

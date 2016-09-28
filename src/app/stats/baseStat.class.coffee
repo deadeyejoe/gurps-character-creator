@@ -18,14 +18,14 @@ class @BaseStat
       when "scalar"
         opts.min = description.min
         opts.max = description.max
-        opts.base_value = description.base_value
-        opts.scaling = description.points_value
-        return new ScalarStat (description.default_value || 0), opts
+        opts.baseValue = description.baseValue
+        opts.scaling = description.pointsValue
+        return new ScalarStat (description.defaultValue || 0), opts
       when "toggle"
-        opts.points_value = description.points_value
+        opts.pointsValue = description.pointsValue
         return new ToggleStat opts
       when "select"
         opts.values = description.values
-        return new SelectStat description.default_value, opts
+        return new SelectStat description.defaultValue, opts
       when "skill"
         return SkillStat.create character, description

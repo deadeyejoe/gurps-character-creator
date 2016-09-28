@@ -1,26 +1,35 @@
 angular.module('gurpscc').constant 'primary', {
+  type: 'category'
   strength:
-    name:"Strength"
+    name:"strength"
     label:"Strength (ST)"
     type: "scalar"
-    points_value: 10
-    base_value: 10
+    defaultValue:10
+    baseValue: 10
+    pointsValue: 10
+    min:1
   dexterity:
-    name:"Dexterity"
+    name:"dexterity"
     label:"Dexterity (DX)"
     type: "scalar"
-    points_value: 20
-    base_value: 10
+    defaultValue:10
+    baseValue: 10
+    pointsValue: 20
+    min:1
   intelligence:
-    name:"Intelligence"
+    name:"intelligence"
     label:"Intelligence (IQ)"
     type: "scalar"
-    points_value: 20
-    base_value: 10
+    defaultValue:10
+    baseValue: 10
+    pointsValue: 20
+    min:1
   health:
-    name:"Health"
+    name:"health"
     label:"Health (HT)"
     type: "scalar"
-    points_value: 10
-    base_value: 10
+    defaultValue:10
+    baseValue: 10
+    pointsValue: 10
+    min:1
 }

@@ -1,10 +1,12 @@
 angular.module('gurpscc').constant 'simpleSkills', {
+  type: 'category'
+  activated: true
 
   acrobatics:
     name:"acrobatics"
     label:"Acrobatics"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'H'
     default: "-6"
@@ -14,7 +16,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"acting"
     label:"Acting"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -24,7 +26,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"animal_handling"
     label:"Animal Handling"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -34,7 +36,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"area_knowledge"
     label:"Area Knowledge"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'E'
     default: "-4"
@@ -45,7 +47,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"armoury"
     label:"Armoury"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -56,7 +58,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"brawling"
     label:"Brawling"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'E'
     default: false
@@ -66,7 +68,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"camouflage"
     label:"Camouflage"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'E'
     default: "-4"
@@ -76,7 +78,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"carousing"
     label:"Carousing "
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'HT'
     difficulty: 'E'
     default: "-4"
@@ -86,7 +88,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"climbing"
     label:"Climbing"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'A'
     default: "-5"
@@ -96,7 +98,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"computer_operation"
     label:"Computer Operation"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'E'
     default: "-4"
@@ -106,7 +108,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"computer_programming"
     label:"Computer Programming"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: false
@@ -116,7 +118,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"crewman"
     label:"Crewman"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'E'
     default: "-4"
@@ -126,7 +128,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"criminology"
     label:"Criminology"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -136,7 +138,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"diagnosis"
     label:"Diagnosis"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -146,7 +148,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"disguise"
     label:"Disguise"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -156,7 +158,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"electronics_operation"
     label:"Electronics Operation"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -166,7 +168,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"electronics_repair"
     label:"Electronics Repair"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -176,7 +178,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"engineer"
     label:"Engineer"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: false
@@ -186,7 +188,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"environment_suit"
     label:"Environment Suit"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'DX'
     difficulty: 'A'
     default: "-5"
@@ -197,7 +199,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"escape"
     label:"Escape"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'H'
     default: "-6"
@@ -207,7 +209,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"explosives"
     label:"Explosives"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -217,7 +219,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"first_aid"
     label:"First Aid"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'E'
     default: "-4"
@@ -227,7 +229,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"forgery"
     label:"Forgery"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -237,7 +239,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"gambling"
     label:"Gambling"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -247,7 +249,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"hiking"
     label:"Hiking"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'HT'
     difficulty: 'A'
     default: "-5"
@@ -257,7 +259,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"holdout"
     label:"Holdout"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -267,7 +269,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"humanities"
     label:"Humanities"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -278,7 +280,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"interrogation"
     label:"Interrogation"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -288,7 +290,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"jumping"
     label:"Jumping"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'E'
     default: false
@@ -298,7 +300,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"karate"
     label:"Karate"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'H'
     default: false
@@ -309,7 +311,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"law"
     label:"Law"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -319,7 +321,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"leadership"
     label:"Leadership"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -329,7 +331,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"lockpicking"
     label:"Lockpicking"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -339,7 +341,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"mathematics"
     label:"Mathematics"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -349,7 +351,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"mechanic"
     label:"Mechanic"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -359,7 +361,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"merchant"
     label:"Merchant"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -369,7 +371,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"natural_sciences"
     label:"Natural Sciences"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -380,7 +382,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"naturalist"
     label:"Naturalist"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -390,7 +392,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"navigation"
     label:"Navigation"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -401,7 +403,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"observation"
     label:"Observation"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -411,7 +413,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"occultism"
     label:"Occultism"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -421,7 +423,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"photography"
     label:"Photography"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -431,7 +433,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"physician"
     label:"Physician"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'H'
     default: "-7."
@@ -441,7 +443,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"pickpocket"
     label:"Pickpocket"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'H'
     default: "-6"
@@ -451,7 +453,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"public_speaking"
     label:"Public Speaking"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -461,7 +463,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"research"
     label:"Research"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -471,7 +473,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"riding"
     label:"Riding"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'A'
     default: "-5"
@@ -482,7 +484,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"scrounging"
     label:"Scrounging"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'E'
     default: "-4"
@@ -492,7 +494,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"search"
     label:"Search"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -502,7 +504,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"shadowing"
     label:"Shadowing"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -512,7 +514,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"shield"
     label:"Shield"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'E'
     default: "-4"
@@ -522,7 +524,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"social_sciences"
     label:"Social Sciences"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -533,7 +535,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"smuggling"
     label:"Smuggling"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -543,7 +545,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"stealth"
     label:"Stealth"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'A'
     default: "-5"
@@ -553,7 +555,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"survival"
     label:"Survival"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -564,7 +566,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"swimming"
     label:"Swimming"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'HT'
     difficulty: 'E'
     default: "-4"
@@ -574,7 +576,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"tactics"
     label:"Tactics"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'H'
     default: "-6"
@@ -584,7 +586,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"throwing"
     label:"Throwing"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'A'
     default: "-3."
@@ -594,7 +596,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"tracking"
     label:"Tracking"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -604,7 +606,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"traps"
     label:"Traps"
     type: 'skill'
-    tech_level:true
+    techLevel:true
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"
@@ -614,7 +616,7 @@ angular.module('gurpscc').constant 'simpleSkills', {
     name:"writing"
     label:"Writing"
     type: 'skill'
-    tech_level:false
+    techLevel:false
     stat: 'IQ'
     difficulty: 'A'
     default: "-5"

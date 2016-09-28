@@ -1,95 +1,96 @@
 angular.module('gurpscc').constant 'image_and_status', {
+  type: 'category'
   appearance:
     name:"appearance"
     label:"Appearance"
     type:"select"
-    base_value:"average"
+    defaultValue:"average"
     values:
       very_beautiful:
-        points_value:16
+        pointsValue:16
         label: "Very Beautiful"
       beautiful:
-        points_value:12
+        pointsValue:12
         label: "Beautiful"
       attractive:
-        points_value:4
+        pointsValue:4
         label: "Attractive"
       average:
-        points_value:0
+        pointsValue:0
         label: "Average"
       unattractive:
-        points_value:-4
+        pointsValue:-4
         label: "Unattractive"
       ugly:
-        points_value:-8
+        pointsValue:-8
         label: "Ugly"
       hideous:
-        points_value:-16
+        pointsValue:-16
         label: "Hideous"
   charisma :
     name:"charisma"
     label:"Charisma"
     type:"scalar"
-    points_value: 5
+    pointsValue: 5
   voice :
     name:"voice"
     label:"Voice"
     type : "toggle"
-    points_value : 10
+    pointsValue : 10
   wealth:
     name:"wealth"
     label:"Starting Wealth"
     type: "select"
-    base_value:"average"
+    defaultValue:"average"
     values:
       filthy_rich:
         label:"Filthy Rich"
-        points_value:50
+        pointsValue:50
       very_wealthy:
         label:"Very Wealthy"
-        points_value:30
+        pointsValue:30
       wealthy:
         label:"Wealthy"
-        points_value:20
+        pointsValue:20
       comfortable:
         label:"Comfortable"
-        points_value:10
+        pointsValue:10
       average:
         label:"Average"
-        points_value:0
+        pointsValue:0
       struggling:
         label:"Struggling"
-        points_value:-10
+        pointsValue:-10
       poor:
         label:"Poor"
-        points_value:-15
+        pointsValue:-15
       dead_broke:
         label:"Dead Broke"
-        points_value:-25
+        pointsValue:-25
   status :
     name:"status"
     label:"Social Status"
     type:"scalar"
-    points_value: 5
-    base_value: 0
+    pointsValue: 5
+    baseValue: 0
     max : 8
     min : -2
   odious_personal_habit:
     name:"odious_personal_habit"
     label:"Odious Personal Habit"
     type:"select"
-    base_value:"None"
+    defaultValue:"None"
     values:
       none:
         label:"None"
-        points_value:0
+        pointsValue:0
       mild:
         label:"Mild"
-        points_value:-5
+        pointsValue:-5
       minor:
         label:"Minor"
-        points_value:-10
+        pointsValue:-10
       major:
         label:"Major"
-        points_value:-15
+        pointsValue:-15
 }

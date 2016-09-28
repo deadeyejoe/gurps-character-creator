@@ -21,7 +21,7 @@ ScalarDirectiveController = (SchemaService, ScoreService, Character) ->
       @character.getValue @path
 
   contribution = () =>
-    (currentValue() - baseValue())* @description.points_value
+    (currentValue() - baseValue())* @description.pointsValue
 
   increased = () => attribute(currentValue() + 1)
 
@@ -31,7 +31,7 @@ ScalarDirectiveController = (SchemaService, ScoreService, Character) ->
     @character.getValue(@path)
 
   baseValue = () =>
-    @description.base_value || 0
+    @description.baseValue || 0
 
   validate = (value) =>
     !((@description.max? && value > @description.max) || value < (@description.min || 0))

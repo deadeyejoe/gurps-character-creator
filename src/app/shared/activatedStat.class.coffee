@@ -8,14 +8,12 @@ class @ActivatedStat
   initChangeFields: () =>
     if (change = @character.getChangeValue(@path))
       @note = change.note
-      @subtype = change.subtype
 
   activate: () ->
     @character.applyChange @changeDescriptor() unless @isActive()
 
   deactivate: () ->
     @character.removeChange @path unless !@isActive()
-    delete this['subtype']
     delete this['note']
     @stat.reset()
 
@@ -30,7 +28,6 @@ class @ActivatedStat
     description: @description
     value: @stat.value
     contribution: @stat.contribution()
-    subtype: @subtype
     note: @note
   }
 

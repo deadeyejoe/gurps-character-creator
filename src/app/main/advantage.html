@@ -22,15 +22,15 @@
   <h3>{{advantages.selected.label}}</h3>
   <div ng-switch="advantages.selected.type">
     <p ng-switch-when="toggle">
-      <em>Points:</em> {{advantages.selected.points_value}} points
+      <em>Points:</em> {{advantages.selected.pointsValue}} points
     </p>
     <p ng-switch-when="scalar">
-      <em>Points:</em> {{advantages.selected.points_value}} points/level
+      <em>Points:</em> {{advantages.selected.pointsValue}} points/level
     </p>
     <p ng-switch-when="select">
       <em>Points:</em> varies
     </p>
-    <p>
+    <p ng-style="{'white-space': 'pre-wrap'}">
       {{advantages.selected.description}}
     </p>
   </div>

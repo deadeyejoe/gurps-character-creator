@@ -1,7 +1,7 @@
 class @SkillStat extends ScalarStat
 
   contribution: () ->
-    @constructor.pointValue(@value, @base_value)
+    @constructor.pointValue(@value, @baseValue)
 
   @create: (character, description) ->
     defaultValue = @defaultValue(character, description)

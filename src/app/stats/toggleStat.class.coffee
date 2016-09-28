@@ -1,7 +1,7 @@
 class @ToggleStat extends BaseStat
   constructor: (@options) ->
     super(false, @options)
-    @points_value = @options.points_value
+    @pointsValue = @options.pointsValue
 
   toggle: () ->
     @value = !@value
@@ -21,4 +21,4 @@ class @ToggleStat extends BaseStat
 
   reset: () -> @off()
 
-  contribution: () -> if @value then @points_value else 0
+  contribution: () -> if @value then @pointsValue else 0

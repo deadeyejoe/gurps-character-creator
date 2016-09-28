@@ -6,7 +6,7 @@ SelectController = (SchemaService, ScoreService, Character) ->
     @description = SchemaService.descriptionFor @path
 
     unless currentValue()?
-      @character.setValue(@path, @description.base_value)
+      @character.setValue(@path, @description.baseValue)
 
     @attribute = attribute
     @contribution = contribution
@@ -15,7 +15,7 @@ SelectController = (SchemaService, ScoreService, Character) ->
     @character.getValue(@path)
 
   pointsValue = (value) =>
-    @description.values[value]?.points_value
+    @description.values[value]?.pointsValue
 
   attribute = (value) =>
     if arguments.length

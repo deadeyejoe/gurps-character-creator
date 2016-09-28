@@ -1,10 +1,7 @@
 class @ScalarStat extends BaseStat
   constructor: (@default, @options = {}) ->
     super(@default, @options)
-    @min = @options.min || 0
-    @max = @options.max || null
-    @base_value = @options.base_value || @min
-    @scaling = @options.scaling || 1
+    {@min = 1, @max, @baseValue = @min, @scaling = 1} = @options
 
   set: (value) ->
     if value >= @min and not @max? or value <= @max
@@ -26,4 +23,4 @@ class @ScalarStat extends BaseStat
     @callback(@value)
 
   contribution: () ->
-    (@value - @base_value) * @scaling
+    (@value - @baseValue) * @scaling

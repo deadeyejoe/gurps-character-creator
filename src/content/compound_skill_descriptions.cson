@@ -109,7 +109,7 @@ to use all types of crossbows. "
 
 
     label:"Thrown Weapon"
-    tech_level:false
+    techLevel:false
     stat: 'DX'
     difficulty: 'E'
     default: "DX-4."

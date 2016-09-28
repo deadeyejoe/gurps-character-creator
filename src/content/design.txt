@@ -1,0 +1,60 @@
+attribute types:
+  toggle
+  scalar
+    skill
+  select
+  category
+  root
+
+fixed categories:
+  primary
+  image_and_status
+  advantages
+  disadvantages
+  skills
+
+attribute description properties:
+
+  common:
+    path
+    name
+    label
+    type
+    description
+    defaultValue
+
+  scalar:
+    baseValue
+    min
+    max
+    pointsValue
+
+  toggle:
+    pointsValue
+
+  select:
+    values:[
+      name:
+        pointsValue
+        label
+      ]
+
+  skill:
+    difficulty
+    stat
+    techLevel
+    default
+
+  subtyped:
+    parent?
+    subtypes: true(open)/false/values
+      name:
+        label
+      other? special value
+
+change description properties:
+
+  common:
+    path/category
+    value ()? or value?
+    contribution ()? or value?

@@ -1,4 +1,5 @@
 angular.module('gurpscc').constant 'derived', {
+  type: 'category'
   hp:
     name: "hp"
     label: "HP"

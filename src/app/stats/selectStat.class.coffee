@@ -11,4 +11,4 @@ class @SelectStat extends BaseStat
     @select(@default)
 
   contribution: () ->
-    @values[@value].points_value
+    @values[@value].pointsValue

@@ -16,7 +16,7 @@ ToggleDirectiveController = (SchemaService, ScoreService, Character) ->
     @character.getValue(@path)
 
   pointsValue = (value) =>
-    @description.points_value
+    @description.pointsValue
 
   attribute = (value) =>
     if arguments.length

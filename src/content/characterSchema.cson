@@ -1,0 +1,52 @@
+schema_types:
+  'toggle'
+  'scalar'
+  'skill'
+  'select'
+  'root'
+  'category'
+  'subtyped'
+
+fixed_categories:
+  'primary'
+  'image_and_status'
+  'advantages'
+  'disadvantages'
+  'skills'
+
+description_properties:
+  common:
+    'name'
+    'label'
+    'type'
+    'description'
+    'defaultValue'
+    'techLevel' #true/false/value
+  scalar:
+    'baseValue'
+    'min'
+    'max'
+    'pointsValue'
+  toggle:
+    'pointsValue'
+  select:
+    values:
+      'name'
+      'label'
+      'pointsValue'
+  skill:
+    'difficulty'
+    'stat'
+    'default'
+  subtyped:
+    'subtypes': #true(open)/false/values
+        'name':'label'
+      'custom'
+
+attribute_properties:
+  common:
+    'path'
+    'value'
+    'contribution'
+    'techLevel'
+    'notes'
