@@ -4,12 +4,15 @@ class @ToggleAttribute extends CharacterAttribute
     @type = 'toggle'
 
   contribution: () ->
-    if @value then @description.pointValue else 0
+    if @value then @description.pointsValue else 0
 
   mutator: (character) ->
     new ToggleMutator character, this
 
 class @ToggleMutator extends BaseMutator
+
+  set:(newValue) ->
+    @attribute.value = newValue
 
   toggle: () ->
     @attribute.value = !@attribute.value

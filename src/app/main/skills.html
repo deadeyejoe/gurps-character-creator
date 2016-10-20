@@ -20,11 +20,10 @@
     </tr>
     <tr
       class="skill-row"
-      related-stat="description.stat"
-      ng-class="{'selected' : skills.isSelected(description.name)}"
-      ng-click="skills.setSelected(description.name)"
-      ng-dblclick="skills.selectAndToggle(description)"
       ng-repeat="description in skills.instances | orderBy: skills.sortField : skills.sortReverse | filter: skills.notActive"
+      ng-class="{'selected' : skills.isSelected(description)}"
+      ng-click="skills.setSelected(description)"
+      related-stat="description.stat"
     >
       <td>{{description.label}}</td>
       <td>{{description.stat}}</td>
@@ -34,7 +33,7 @@
 </div>
 
 <div class="col-md-5">
-  <div class="skill-description">
+  <div class="skill-description" ng-show="skills.selected != null">
     <h3>{{skills.selected.label}}</h3>
     <table class="table table-borderless">
       <tr>
@@ -59,9 +58,9 @@
       </tr>
     </table>
   </div>
-  <a href="#" ng-click="skills.characterStat.activate()" class="btn btn-success" ng-disabled="skills.characterStat.isActive()">Add</a>
-  <a href="#" ng-click="skills.characterStat.deactivate()" class="btn btn-danger" ng-disabled="!skills.characterStat.isActive()">Remove</a>
-  <skill-edit character-stat="skills.characterStat" ng-if="skills.characterStat.isActive()"></skill-edit>
+  <a href="#" ng-click="skills.addSelected()" class="btn btn-success">Add</a>
+  <a href="#" ng-click="skills.removeSelected()" class="btn btn-danger">Remove</a>
+  <attribute-edit attribute="skills.selectedAttribute" mutator="skills.mutator" ng-if="skills.mutator != null"></attribute-edit>
 </div>
 
 <div class="col-md-4">
@@ -74,15 +73,15 @@
     </tr>
     <tr
       class="skill-row"
-      related-stat="changeDescriptor.description.stat"
-      ng-class="{'selected' : skills.isSelected(changeDescriptor.description.name)}"
-      ng-click="skills.setSelected(changeDescriptor.description.name)"
-      ng-dblclick="skills.selectAndToggle(changeDescriptor.description)"
-      ng-repeat="changeDescriptor in skills.active() | orderBy: 'label'"
+      ng-repeat="(path,attribute) in skills.active() | orderBy: 'label'"
+      ng-class="{'selected' : skills.isSelected(attribute.description)}"
+      ng-click="skills.setSelected(attribute.description)"
+      ng-dblclick="skills.selectAndToggle(attribute.description)"
+      related-stat="attribute.description.stat"
     >
-      <td>{{changeDescriptor.description.label}}</td>
-      <td>{{changeDescriptor.value}}</td>
-      <td>{{changeDescriptor.contribution}}</td>
+      <td>{{attribute.description.label}}</td>
+      <td>{{attribute.value}}</td>
+      <td>{{attribute.contribution()}}</td>
     </tr>
   </table>
 </div>

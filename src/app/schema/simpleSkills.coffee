@@ -1,6 +1,5 @@
 angular.module('gurpscc').constant 'simpleSkills', {
   type: 'category'
-  activated: true
 
   acrobatics:
     name:"acrobatics"

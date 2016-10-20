@@ -1,12 +1,21 @@
-<div ng-switch="attributeEdit.characterStat.description.type">
-  <div ng-switch-when="scalar">
-    <scalar-edit stat="attributeEdit.characterStat.stat"></scalar-edit>
+<div ng-switch="attributeEdit.attribute.description.type">
+  <span ng-switch-when="scalar">
+    <scalar-stat attribute="attributeEdit.attribute" mutator="attributeEdit.mutator"></scalar-stat>
+  </span>
+  <span ng-switch-when="skill">
+    <scalar-stat attribute="attributeEdit.attribute" mutator="attributeEdit.mutator"></scalar-stat>
+  </span>
+  <span ng-switch-when="select">
+    <select-stat attribute="attributeEdit.attribute" mutator="attributeEdit.mutator"></select-stat>
+  </span>
+  <span ng-switch-when="toggle">
+    <toggle-stat attribute="attributeEdit.attribute" mutator="attributeEdit.mutator"></toggle-stat>
+  </span>
+  <span class="add-note-button btn btn-default" ng-click="attributeEdit.showNote = !attributeEdit.showNote">
+    <span class="fa fa-sticky-note"></span>
+  </span>
+  <div class="note-input" ng-show="attributeEdit.showNote">
+    <strong>Note:</strong>
+    <textarea class="form-control" ng-model="attributeEdit.attribute.note"></textarea>
   </div>
-  <div ng-switch-when="select">
-    <select-edit stat="attributeEdit.characterStat.stat"></select-edit>
-  </div>
-  <div ng-switch-when="toggle">
-
-  </div>
-  <div ng-switch-default></div>
 </div>

@@ -2,7 +2,6 @@ class @ScalarAttribute extends CharacterAttribute
   constructor: (@path, @description, opts = {}) ->
     super(@path, @description, opts)
     @type = 'scalar'
-    @value ?= 0
 
   contribution: () ->
     (@value - @description.baseValue) * @description.pointsValue
@@ -12,20 +11,23 @@ class @ScalarAttribute extends CharacterAttribute
 
 class @ScalarMutator extends BaseMutator
   set: (value) ->
-    if value >= @description.min and not @description.max? or value <= @description.max
+    if @valueInBounds(value)
       @attribute.value = value
       @notifyChanged()
 
   increment: () ->
-    if not @description.max? or (@attribute.value != @description.max)
+    if @valueInBounds(@attribute.value + 1)
       @attribute.value += 1
       @notifyChanged()
 
   decrement: () ->
-    unless @attribute.value == @min
+    if @valueInBounds(@attribute.value - 1)
       @attribute.value -= 1
       @notifyChanged()
 
   reset: () ->
     @attribute.value = @description.defaultValue
     @notifyChanged()
+
+  valueInBounds: (value) ->
+    value >= (@description.min || 1) and not @description.max? or value <= @description.max

@@ -1,7 +1,7 @@
 <div class="form-group">
   <label>{{toggle.description.label}}</label>
   <div class="input-group">
-    <input type="checkbox" class="form-control" ng-model="toggle.attribute" ng-model-options="{ getterSetter: true }">
-    <span class="input-group-addon">{{- toggle.contribution()}}</span>
+    <input type="checkbox" class="form-control" ng-model="toggle.currentValue" ng-click="toggle.mutator.toggle()">
+    <span class="input-group-addon">{{- toggle.attribute.contribution()}}</span>
   </div>
 </div>

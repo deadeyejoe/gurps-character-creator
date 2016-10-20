@@ -1,7 +1,7 @@
-ScoreDirectiveController = (ScoreService, Character) ->
+ScoreDirectiveController = (ScoreService, CharacterService) ->
 
   init = () =>
-    @character = Character
+    @character = CharacterService.current
     @totalPoints = 150
 
   @spentPoints = () =>
@@ -12,7 +12,7 @@ ScoreDirectiveController = (ScoreService, Character) ->
 
   init()
 
-ScoreDirectiveController.$inject = ['ScoreService', 'Character']
+ScoreDirectiveController.$inject = ['ScoreService', 'CharacterService']
 
 angular.module('gurpscc').controller('ScoreDirectiveController', ScoreDirectiveController)
 

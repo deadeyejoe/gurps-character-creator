@@ -3,9 +3,10 @@ class @SkillAttribute extends ScalarAttribute
     super(@path, @description, opts)
     @type = "skill"
     @baseValue = opts.baseValue
+    @value ?= @baseValue
 
   contribution: () ->
-    @pointValue(@value - @baseValue)
+    @pointValue(@value, @baseValue)
 
   pointValue: (value, base) ->
     switch
@@ -24,10 +25,10 @@ class @SkillAttribute extends ScalarAttribute
       when 'H' then 2
 
     baseStatValue = switch description.stat
-      when 'ST' then character.strength
-      when 'DX' then character.dexterity
-      when 'IQ' then character.intelligence
-      when 'HT' then character.health
+      when 'ST' then character.getValue("primary.strength")
+      when 'DX' then character.getValue("primary.dexterity")
+      when 'IQ' then character.getValue("primary.intelligence")
+      when 'HT' then character.getValue("primary.health")
 
     return baseStatValue - difficultyMod
 
@@ -39,3 +40,10 @@ class @SkillMutator extends ScalarMutator
 
     @attribute.baseValue = newBase
     @attribute.value -= difference
+
+  valueInBounds: (value) ->
+    value >= @attribute.baseValue
+
+  reset: () ->
+    @attribute.value = @attribute.baseValue
+    @notifyChanged()

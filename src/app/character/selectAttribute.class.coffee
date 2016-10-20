@@ -10,10 +10,10 @@ class @SelectAttribute extends CharacterAttribute
     new SelectMutator character, this
 
 class @SelectMutator extends BaseMutator
-  select: (value) ->
-    if @description.values.indexOf(value) >= 0
+  set: (value) ->
+    if @description.values[value]?
       @attribute.value = value
       @notifyChanged()
 
   reset: () ->
-    @select(@description.defaultValue)
+    @set(@description.defaultValue)

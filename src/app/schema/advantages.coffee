@@ -1,6 +1,5 @@
 angular.module('gurpscc').constant 'advantages', {
   type: 'category'
-  activated: true
   acute_hearing:
     name:"acute_hearing"
     label:"Acute Hearing"

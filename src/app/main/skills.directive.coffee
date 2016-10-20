@@ -1,11 +1,9 @@
 #controller
-SkillsController = (SchemaService, Character) ->
+SkillsController = (SchemaService, CharacterService) ->
 
   init = () =>
-    @schema = SchemaService.schema
-
-    @instances = objToArray(@schema.skills)
-    @instances.pop() #remove the 'path'
+    @character = CharacterService.current
+    @instances = SchemaService.asClonedList "skills"
 
     @sortBy('label')
     @setSelected(@instances[0].name)
@@ -17,37 +15,39 @@ SkillsController = (SchemaService, Character) ->
       @sortField = field
       @sortReverse = false
 
-  objToArray = (obj) =>
-    ret = []
-    ret.push value for key, value of obj
-    ret
+  @setSelected = (description) =>
+    @selected = description
+    @selectedAttribute = @character.getAttribute @selected.path
+    if @selectedAttribute?
+      @mutator = @selectedAttribute.mutator(@character)
+    else
+      @mutator = null
 
-  @createStat = (description = @selected) =>
-    ActivatedStat.create Character, description
+  @addSelected = () =>
+    @selectedAttribute = @character.attributeFactory().create @selected
 
-  @setSelected = (name) =>
-    @selected = @descriptionFor(name)
-    @characterStat = @createStat()
+    @character.addAttribute(@selectedAttribute)
+    @mutator = @selectedAttribute.mutator(@character)
 
-  @isSelected = (name) => @selected.name == name
-  @descriptionFor = (name) => @schema.skills[name]
-
-  @notActive = (description) => !@isActive(description)
-  @isActive = (description) => Character.isActive(description.path)
+  @removeSelected = () =>
+    if @selectedAttribute?
+      @character.removeAttribute(@selected.path)
+      @selectedAttribute = null
+      @mutator = null
 
   @active = () =>
-    @actives = []
-    @actives.push skill for name, skill of Character.changes.skills
-    @actives
+    @character.getAttributes('skills')
 
-  @selectAndToggle = (description) =>
-    @setSelected(description.name)
-    if @characterStat.isActive() then @characterStat.deactivate() else @characterStat.activate()
+  @isSelected = (description) =>
+    @selected == description
+
+  @notActive = (description) => !@isActive(description)
+  @isActive = (description) => @character.isActive(description)
 
   init()
   return
 
-SkillsController.$inject = ['SchemaService', 'Character']
+SkillsController.$inject = ['SchemaService', 'CharacterService']
 
 angular.module('gurpscc').directive 'skills', () -> {
   templateUrl: 'main/skills.html'

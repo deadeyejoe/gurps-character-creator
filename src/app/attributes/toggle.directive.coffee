@@ -1,45 +1,23 @@
 #controller
-ToggleDirectiveController = (SchemaService, ScoreService, Character) ->
+ToggleDirectiveController = ($scope) ->
 
   init = () =>
-    @score = ScoreService
-    @character = Character
-    @description = SchemaService.descriptionFor @path
+    @description = @attribute.description
+    @currentValue = @attribute.value
 
-    unless currentValue()?
-      @character.setValue(@path, false)
-
-    @attribute = attribute
-    @contribution = contribution
-
-  currentValue = () =>
-    @character.getValue(@path)
-
-  pointsValue = (value) =>
-    @description.pointsValue
-
-  attribute = (value) =>
-    if arguments.length
-      @character.setValue @path, value
-      @score.apply @path, contribution()
-    else
-      @character.getValue @path
-
-  contribution = () =>
-    if currentValue() then pointsValue() else 0
-
+    $scope.$watch 'toggle.attribute', (newVal, oldVal) => @currentValue = newVal.value
 
   init()
   return
 
-ToggleDirectiveController.$inject = ['SchemaService', 'ScoreService', 'Character']
+ToggleDirectiveController.$inject = ['$scope']
 
-angular.module('gurpscc.attributes').directive 'toggleStat', () -> {
+angular.module('gurpscc.attributes').directive 'toggleStat', () ->
   templateUrl: 'attributes/toggle.html'
   restrict: 'E'
   controller: ToggleDirectiveController
   controllerAs: 'toggle'
   bindToController: true
   scope:
-    path: '@'
-}
+    attribute: '='
+    mutator: '='

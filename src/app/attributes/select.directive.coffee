@@ -1,43 +1,25 @@
-SelectController = (SchemaService, ScoreService, Character) ->
+SelectController = () ->
 
   init = () =>
-    @score = ScoreService
-    @character = Character
-    @description = SchemaService.descriptionFor @path
+    @description = @attribute.description
 
-    unless currentValue()?
-      @character.setValue(@path, @description.baseValue)
-
-    @attribute = attribute
-    @contribution = contribution
-
-  currentValue = () =>
-    @character.getValue(@path)
-
-  pointsValue = (value) =>
-    @description.values[value]?.pointsValue
-
-  attribute = (value) =>
+  @value = (newValue) =>
     if arguments.length
-      @character.setValue @path, value
-      @score.apply @path, contribution()
+      @mutator.set(newValue)
     else
-      @character.getValue @path
-
-  contribution = () =>
-    pointsValue(currentValue())
+      @attribute.value
 
   init()
   return
 
-SelectController.$inject = ['SchemaService', 'ScoreService', 'Character']
+SelectController.$inject = []
 
-angular.module('gurpscc.attributes').directive 'selectStat', () -> {
+angular.module('gurpscc.attributes').directive 'selectStat', () ->
   templateUrl: 'attributes/select.html'
   restrict: 'E'
   controller: SelectController
   controllerAs: 'select'
   bindToController: true
   scope:
-    path: '@'
-}
+    attribute: '='
+    mutator: '='

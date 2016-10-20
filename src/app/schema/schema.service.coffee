@@ -16,6 +16,20 @@ class SchemaService
       value = value?[segment]
     return value
 
+  asClonedList: (category) ->
+    subSchema = @schema[category]
+    return [] unless subSchema?
+
+    clone = JSON.parse(JSON.stringify(subSchema))
+    delete clone.type
+    delete clone.path
+
+    ret = []
+    for name, description of clone
+      ret.push description
+
+    return ret
+
   #initialization===================================
   pathify: (schema, path_prefix = '') ->
     return if @isRoot(schema)

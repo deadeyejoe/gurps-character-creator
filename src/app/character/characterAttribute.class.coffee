@@ -1,10 +1,10 @@
 class @CharacterAttribute
   constructor: (@path, @description, opts = {}) ->
-    {@value, @notes, @subtype, @tech_level} = opts
+    {@value, @note, @subtype, @tech_level} = opts
     @value ?= @description.defaultValue
 
   subtyped: () ->
-    @description.subtypes? || @description.techLevel?
+    false
 
   contribution: () -> 0
 

@@ -1,42 +1,47 @@
 #controller
-AdvantagesAndDisadvantagesController = (SchemaService, Character) ->
+AdvantagesAndDisadvantagesController = (SchemaService, CharacterService) ->
 
   init = () =>
-    @schema = SchemaService.schema
-    @advantages = cloneSubSchema(@schema.advantages)
-    @disadvantages = cloneSubSchema(@schema.disadvantages)
+    @character = CharacterService.current
+    @advantages = SchemaService.asClonedList "advantages"
+    @disadvantages = SchemaService.asClonedList "disadvantages"
 
   @setSelected = (description) =>
     @selected = description
-    @characterStat = @createStat()
+    @selectedAttribute = @character.getAttribute @selected.path
+    if @selectedAttribute?
+      @mutator = @selectedAttribute.mutator(@character)
+    else
+      @mutator = null
 
-  @createStat = (description = @selected) =>
-    ActivatedStat.create Character, description
+  @addSelected = () =>
+    if @selected.type == "toggle"
+      @selectedAttribute = @character.attributeFactory().create @selected, {value: true}
+    else
+      @selectedAttribute = @character.attributeFactory().create @selected
 
-  @isExcluded = (description) =>
-    for changeDescriptor in @active()
-      if changeDescriptor.excluded? && changeDescriptor.excluded.indexOf(description.name) > -1
-        return true
-    return false
+    @character.addAttribute(@selectedAttribute)
+    @mutator = @selectedAttribute.mutator(@character)
 
-  @isActive = (description) => Character.isActive(description.path)
-  @notActive = (description) => !@isActive(description)
+  @removeSelected = () =>
+    if @selectedAttribute?
+      @character.removeAttribute(@selected.path)
+      @selectedAttribute = null
+      @mutator = null
 
-  cloneSubSchema = (subSchema) =>
-    ret = JSON.parse(JSON.stringify(subSchema))
-    delete ret.path
-    ret
+  @isActive = (description) =>
+    @character.isActive(description.path)
 
   @active = () =>
-    @actives = []
-    @actives.push advantage for name, advantage of Character.changes.advantages
-    @actives.push disadvantage for name, disadvantage of Character.changes.disadvantages
-    @actives
+    @character.getAttributes("advantages")
+
+  @isInactive = (value) =>
+    !@isActive(value.path)
 
   init()
   return
 
-AdvantagesAndDisadvantagesController.$inject = ['SchemaService', 'Character']
+AdvantagesAndDisadvantagesController.$inject = ['SchemaService', 'CharacterService']
 
 angular.module('gurpscc').directive 'advantagesAndDisadvantages', () -> {
   templateUrl: 'main/advantage.html'

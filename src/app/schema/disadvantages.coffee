@@ -1,6 +1,5 @@
 angular.module('gurpscc').constant 'disadvantages', {
   type: 'category'
-  activated: true
   bad_sight:
     name:"bad_sight"
     label:"Bad Sight"
@@ -40,7 +39,7 @@ angular.module('gurpscc').constant 'disadvantages', {
         pointsValue:-10
         label:"Moderate"
       major:
-        pointsValue:-10
+        pointsValue:-15
         label:"Major"
   curious:
     name:"curious"

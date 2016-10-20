@@ -2,10 +2,10 @@
   <label>{{select.description.label}}</label>
   <div class="input-group">
     <select class="form-control"
-      ng-model="select.attribute"
+      ng-model="select.value"
       ng-model-options="{ getterSetter: true }"
       ng-options="key as value.label for (key, value) in select.description.values">
     </select>
-    <span class="input-group-addon">{{- select.contribution()}}</span>
+    <span class="input-group-addon">{{- select.attribute.contribution()}}</span>
   </div>
 </div>

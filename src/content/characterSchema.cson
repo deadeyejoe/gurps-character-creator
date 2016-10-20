@@ -40,13 +40,17 @@ description_properties:
     'default'
   subtyped:
     'subtypes': #true(open)/false/values
-        'name':'label'
+      'name':'label'
       'custom'
 
 attribute_properties:
   common:
     'path'
+    'description'
+    'type'
+
     'value'
-    'contribution'
     'techLevel'
+    'subtype'
     'notes'
+    'contribution'

@@ -1,9 +1,9 @@
 <div class="form-group">
   <label>{{scalar.description.label}}</label>
   <div class="input-group">
-    <input type="text" class="form-control" ng-model="scalar.attribute" ng-model-options="{ getterSetter: true }" readonly>
-    <span ng-click="scalar.increased()" class="btn input-group-addon"><i class="fa fa-angle-up"></i></span>
-    <span ng-click="scalar.decreased()" class="btn input-group-addon"><i class="fa fa-angle-down"></i></span>
-    <span class="input-group-addon" ng-class="{'text-success': scalar.contribution() > 0, 'text-danger': scalar.contribution() < 0}">{{- scalar.contribution()}}</span>
+    <input type="text" class="form-control" ng-model="scalar.value" ng-model-options="{ getterSetter: true }" readonly>
+    <span ng-click="scalar.mutator.increment()" class="btn input-group-addon"><i class="fa fa-angle-up"></i></span>
+    <span ng-click="scalar.mutator.decrement()" class="btn input-group-addon"><i class="fa fa-angle-down"></i></span>
+    <span class="input-group-addon">{{- scalar.attribute.contribution()}}</span>
   </div>
 </div>

@@ -1,11 +1,11 @@
-MainController = (SchemaService, Character, $scope) ->
+MainController = (SchemaService, CharacterService, $scope) ->
 
   init = () =>
-    @character = Character
+    @character = CharacterService.current
     @schema = SchemaService.schema
 
     @cschema = new CharacterSchema @schema.primary, @schema.image_and_status, @schema.advantages, @schema.disadvantages, @schema.skills
-    
+
     @primary = [
       "primary.strength"
       "primary.dexterity"
@@ -37,6 +37,6 @@ MainController = (SchemaService, Character, $scope) ->
   return
 
 
-MainController.$inject = ['SchemaService', 'Character', '$scope']
+MainController.$inject = ['SchemaService', 'CharacterService', '$scope']
 
 angular.module('gurpscc').controller 'MainController', MainController

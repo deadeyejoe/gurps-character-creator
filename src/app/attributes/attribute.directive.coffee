@@ -2,18 +2,20 @@
 AttributeEditDirectiveController = (SchemaService) ->
 
   init = () =>
+    @showNote = @attribute.note?
 
   init()
   return
 
 AttributeEditDirectiveController.$inject = ['SchemaService']
 
-angular.module('gurpscc.attributes').directive 'attributeEdit', () -> {
+angular.module('gurpscc.attributes').directive 'attributeEdit', () ->
   templateUrl: 'attributes/attribute.html'
   restrict: 'E'
   controller: AttributeEditDirectiveController
   controllerAs: 'attributeEdit'
   bindToController: true
   scope:
-    characterStat: '='
-}
+    attribute: '='
+    mutator: '='
+    character: '='

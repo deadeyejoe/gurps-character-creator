@@ -1,45 +1,18 @@
-ScalarDirectiveController = (SchemaService, ScoreService, Character) ->
+ScalarDirectiveController = () ->
 
   init = () =>
-    @score = ScoreService
-    @description = SchemaService.descriptionFor @path
-    @character = Character
+    @description = @attribute.description
 
-    unless currentValue()?
-      @character.setValue(@path, baseValue())
-
-    @attribute = attribute
-    @contribution = contribution
-    @increased = increased
-    @decreased = decreased
-
-  attribute = (value) =>
-    if arguments.length && validate(value)
-      @character.setValue @path, value
-      @score.apply @path, contribution()
+  @value = (newValue) =>
+    if arguments.length
+      @mutator.set(newValue)
     else
-      @character.getValue @path
-
-  contribution = () =>
-    (currentValue() - baseValue())* @description.pointsValue
-
-  increased = () => attribute(currentValue() + 1)
-
-  decreased = () => attribute(currentValue() - 1)
-
-  currentValue = () =>
-    @character.getValue(@path)
-
-  baseValue = () =>
-    @description.baseValue || 0
-
-  validate = (value) =>
-    !((@description.max? && value > @description.max) || value < (@description.min || 0))
+      @attribute.value
 
   init()
   return
 
-ScalarDirectiveController.$inject = ['SchemaService', 'ScoreService', 'Character']
+ScalarDirectiveController.$inject = []
 
 angular.module('gurpscc.attributes').directive 'scalarStat', () -> {
   templateUrl: 'attributes/scalar.html'
@@ -48,5 +21,6 @@ angular.module('gurpscc.attributes').directive 'scalarStat', () -> {
   controllerAs: 'scalar'
   bindToController: true
   scope:
-    path: '@'
+    attribute: '='
+    mutator: '='
 }

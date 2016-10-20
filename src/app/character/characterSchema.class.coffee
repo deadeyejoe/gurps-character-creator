@@ -8,17 +8,17 @@ class @CharacterSchema
       disadvantages: disadvantages
       skills: skills
 
-    @pathify(@schema)
+    @pathify(@schema, '', true)
 
-  pathify: (schema, path_prefix = '') ->
-    switch schema.type
-      when 'root'
-        for name, subSchema of schema
+  pathify: (schema, path_prefix, root = false) ->
+    if !schema.type?
+      for name, subSchema of schema
+        if root
           @pathify(subSchema, name)
-      when 'category'
-        for name, subSchema of schema
+        else
           @pathify(subSchema, path_prefix + '.' + name)
-    schema.path = path_prefix
+    else
+      schema.path = path_prefix
 
   lookup: (path) ->
     value = @schema

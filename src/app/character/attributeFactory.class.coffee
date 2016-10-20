@@ -1,14 +1,14 @@
 class @AttributeFactory
   constructor: (@character) ->
 
-  create: (path, description)
+  create: (description, opts = {}) ->
     switch description.type
       when 'scalar'
-        new ScalarAttribute path, description
+        new ScalarAttribute description.path, description, opts
       when 'toggle'
-        new ToggleAttribute path, description
+        new ToggleAttribute description.path, description, opts
       when 'select'
-        new SelectAttribute path, description
+        new SelectAttribute description.path, description, opts
       when 'skill'
-        base = SkillAttribute.calculateBaseValue(character, description)
-        new SkillAttribute path, description, {baseValue: base}
+        base = SkillAttribute.calculateBaseValue(@character, description)
+        new SkillAttribute description.path, description, {baseValue: base}, opts

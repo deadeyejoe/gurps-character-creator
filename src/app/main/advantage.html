@@ -3,8 +3,8 @@
   <div class="list-group">
     <a class="list-group-item"
       ng-repeat="description in advantages.advantages"
+      ng-hide="advantages.isActive(description)"
       ng-click="advantages.setSelected(description)"
-      ng-hide="advantages.isActive(description)" class="{disabled: advantages.isExcluded(description)}"
     >{{description.label}}</a>
   </div>
 </div>
@@ -13,12 +13,12 @@
   <div class="list-group">
     <a class="list-group-item"
     ng-repeat="description in advantages.disadvantages"
+    ng-hide="advantages.isActive(description)"
     ng-click="advantages.setSelected(description)"
-    ng-hide="advantages.isActive(description)" class="{disabled: advantages.isExcluded(description)}"
     >{{description.label}}</a>
   </div>
 </div>
-<div class="col-md-6">
+<div class="col-md-4">
   <h3>{{advantages.selected.label}}</h3>
   <div ng-switch="advantages.selected.type">
     <p ng-switch-when="toggle">
@@ -35,17 +35,29 @@
     </p>
   </div>
   <div ng-if="advantages.selected != null">
-    <button type="button" class="btn btn-success" ng-click="advantages.characterStat.activate()" ng-hide="advantages.characterStat.isActive()">Add</button>
-    <button type="button" class="btn btn-danger" ng-click="advantages.characterStat.deactivate()" ng-show="advantages.characterStat.isActive()">Remove</button>
+    <div class="btn btn-success" ng-click="advantages.addSelected()">
+      Add
+    </div>
+    <div class="btn btn-danger" ng-click="advantages.removeSelected()">
+      Remove
+    </div>
   </div>
-  <activated-attribute character-stat="advantages.characterStat" ng-if="advantages.characterStat.isActive()"></activated-attribute>
+  <div class="edit-attribute" ng-if="advantages.mutator != null">
+    <attribute-edit attribute="advantages.selectedAttribute" mutator="advantages.mutator"></attribute-edit>
+  </div>
 </div>
-<div class="col-md-2">
+<div class="col-md-4">
   <h3>Active</h3>
-  <div class="list-group">
-    <a class="list-group-item"
-    ng-repeat="changeDescriptor in advantages.active()"
-    ng-click="advantages.setSelected(changeDescriptor.description)"
-    >{{changeDescriptor.description.label}}</a>
-  </div>
+  <table class="table">
+    <tr>
+      <th> Name </th>
+      <th> Value </th>
+      <th> Contribution </th>
+    </tr>
+    <tr ng-repeat="attribute in advantages.active()" ng-click="advantages.setSelected(attribute.description)">
+      <td> {{attribute.description.label}} </td>
+      <td> {{attribute.value}} </td>
+      <td> {{-attribute.contribution()}}</td>
+    </tr>
+  </table>
 </div>
