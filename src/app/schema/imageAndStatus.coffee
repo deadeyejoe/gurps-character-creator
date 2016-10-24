@@ -79,7 +79,7 @@ angular.module('gurpscc').constant 'image_and_status', {
     name:"odious_personal_habit"
     label:"Odious Personal Habit"
     type:"select"
-    defaultValue:"None"
+    defaultValue:"none"
     values:
       none:
         label:"None"

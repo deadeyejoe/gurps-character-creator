@@ -1,18 +1,15 @@
-DerivedController = (SchemaService, ScoreService, Character) ->
+DerivedController = (SchemaService, CharacterService) ->
 
   init = () =>
-    @description = SchemaService.descriptionFor @path
-    @character = Character
+    @character = CharacterService.current
 
-    @attribute = attribute
-
-  attribute = () =>
-    @description.formula(@character.stats)
+  @attribute = () =>
+    @description.formula(@character)
 
   init()
   return
 
-DerivedController.$inject = ['SchemaService', 'ScoreService', 'Character']
+DerivedController.$inject = ['SchemaService', 'CharacterService']
 
 angular.module('gurpscc.attributes').directive 'derivedStat', () -> {
   templateUrl: 'attributes/derived.html'
@@ -21,5 +18,5 @@ angular.module('gurpscc.attributes').directive 'derivedStat', () -> {
   controllerAs: 'derived'
   bindToController: true
   scope:
-    path: '@'
+    description: '='
 }

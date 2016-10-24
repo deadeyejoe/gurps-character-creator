@@ -1,4 +1,4 @@
-class @SkillAttribute extends ScalarAttribute
+class @SkillAttribute extends CharacterAttribute
   constructor: (@path, @description, opts) ->
     super(@path, @description, opts)
     @type = "skill"

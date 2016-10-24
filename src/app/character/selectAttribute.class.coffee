@@ -4,7 +4,10 @@ class @SelectAttribute extends CharacterAttribute
     @type = 'select'
 
   contribution: () ->
-    @description.values[@value].pointsValue
+    if @description.values[@value]?
+      @description.values[@value].pointsValue
+    else
+      0
 
   mutator: (character) ->
     new SelectMutator character, this

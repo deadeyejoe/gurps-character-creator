@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4">
+    <h3>Primary</h3>
+    <div ng-repeat="package in primary.primary">
+      <attribute-edit attribute="package.attribute" mutator="package.mutator"></attribute-edit>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Derived</h3>
+    <div ng-repeat="description in primary.derived">
+      <derived-stat description="description"></derived-stat>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Image and Status</h3>
+    <div ng-repeat="package in primary.image_and_status">
+      <attribute-edit attribute="package.attribute" mutator="package.mutator"></attribute-edit>
+    </div>
+  </div>
+</div>

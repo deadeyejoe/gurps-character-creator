@@ -20,13 +20,9 @@ class SchemaService
     subSchema = @schema[category]
     return [] unless subSchema?
 
-    clone = JSON.parse(JSON.stringify(subSchema))
-    delete clone.type
-    delete clone.path
-
     ret = []
-    for name, description of clone
-      ret.push description
+    for name, description of subSchema
+      ret.push description if name != "type" && name != "path"
 
     return ret
 

@@ -4,30 +4,30 @@ angular.module('gurpscc').constant 'derived', {
     name: "hp"
     label: "HP"
     type:"derived"
-    formula: (stats) -> stats.primary.strength
+    formula: (character) -> character.getValue("primary.strength")
   will:
     name: "will"
     label: "Will"
     type:"derived"
-    formula: (stats) -> stats.primary.intelligence
+    formula: (character) -> character.getValue("primary.intelligence")
   perception:
     name: "perception"
     label: "Perception"
     type:"derived"
-    formula: (stats) -> stats.primary.intelligence
+    formula: (character) -> character.getValue("primary.intelligence")
   fp:
     name: "fp"
     label: "FP"
     type:"derived"
-    formula: (stats) -> stats.primary.health
+    formula: (character) -> character.getValue("primary.health")
   lift:
     name: "lift"
     label: "Lift"
     type:"derived"
-    formula: (stats) -> (stats.primary.strength*stats.primary.strength)/5
+    formula: (character) -> (character.getValue("primary.strength")*character.getValue("primary.strength"))/5
   speed:
     name: "speed"
     label: "Speed"
     type:"derived"
-    formula: (stats) -> (stats.primary.health + stats.primary.dexterity)/4
+    formula: (character) -> (character.getValue("primary.health") + character.getValue("primary.dexterity"))/4
 }
